@@ -6,13 +6,17 @@ public class BillBoarding : MonoBehaviour
     public enum BillBoardType { LookAtCamera, CameraForward };
     [SerializeField] private BillBoardType billboardtype;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private bool lockX;
+    [SerializeField] private bool lockY;
+    [SerializeField] private bool lockZ;
+
+    private Vector3 ogRotation;
+
+    void Awake()
     {
-        
+        ogRotation = transform.rotation.eulerAngles;
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
         switch (billboardtype)
@@ -23,6 +27,13 @@ public class BillBoarding : MonoBehaviour
                 case BillBoardType.CameraForward: 
                 transform.forward = Camera.main.transform.forward;
                 break;
+            default: break;
         }
+
+        Vector3 rotation = transform.rotation.eulerAngles;
+        if (lockX) { rotation.x = ogRotation.x; }
+        if (lockY) { rotation.x = ogRotation.y; }
+        if (lockZ) { rotation.x = ogRotation.z; }
+        transform.rotation = Quaternion.Euler(rotation);
     }
 }
