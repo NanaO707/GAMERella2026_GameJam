@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static bool wateredPlant;
     public static bool fairyGot;
+    public static bool fairyUsed;
     public static bool shoutedAtPlant;
     public static bool gameOver;
 

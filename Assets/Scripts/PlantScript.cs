@@ -58,6 +58,13 @@ private void OnMouseDown()
         //start coroutine for amount of time held!
         StartTimer();
 
+        //check fairy
+        if (GameManager.fairyGot && !GameManager.fairyUsed)
+        {
+            GameManager.FairyPlant();
+            GameManager.fairyUsed = true;
+        }
+
     }
 
     private void OnMouseUp()
