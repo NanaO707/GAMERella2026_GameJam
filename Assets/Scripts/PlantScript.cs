@@ -9,6 +9,7 @@ public class PlantScript : MonoBehaviour
     private Coroutine clickTimer;
 
     [SerializeField] GameObject player;
+    [SerializeField] GameManager gameManager;
     void StartTimer()
     {
         //clear
@@ -67,7 +68,7 @@ private void OnMouseDown()
 
         if (GameManager.gameOver)
         {
-           // GameManager.GameOver();
+           gameManager.GameOver();
         }
 
 
