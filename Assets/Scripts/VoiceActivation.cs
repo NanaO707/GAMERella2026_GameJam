@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 public class VoiceActivation : MonoBehaviour{
 
@@ -20,6 +18,11 @@ public class VoiceActivation : MonoBehaviour{
 
     //tracks voice usage of te interaction
     private bool voiceUsed = false;
+
+    // last time user says grow
+    private float lastGrow = 0;
+    //min time between voice commands that come through
+    private float growCooldown = 1.0f;
 
     //voice recognition per windows unity documentation
     private KeywordRecognizer keywordRecognizer;
@@ -54,13 +57,21 @@ public class VoiceActivation : MonoBehaviour{
         //checks for the word grow
         if (speech.text == "grow")
         {
+            //voice command is too quick then ignores
+            if (Time.time - lastGrow < growCooldown)
+            {
+                return;
+            }
+
+            //logs the time of last accepted command
+            lastGrow = Time.time;
             //increments
             growCount++;
            
             Debug.Log(growCount);
 
             //changes image based on grow being said 3 times
-            if(growCount == 3)
+            if(growCount >= 3)
             {
                 //one use
                 voiceUsed = true;
