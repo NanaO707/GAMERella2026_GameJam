@@ -328,12 +328,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 19951f366e34b7a4e9841e32629f3469, type: 3}
   - {fileID: 21300000, guid: c7107bfa37ae09f4fa6107cfda0fe4ab, type: 3}
   - {fileID: 21300000, guid: d478b5cd5a697e14ba8edaa675218250, type: 3}
-  light: {fileID: 0}
+  light: {fileID: 2800130285408579685, guid: 19fdfaf4d926a544494f31889e3ea147, type: 3}
   audioSource: {fileID: 8437754812889981687}
   magicWater: {fileID: 8300000, guid: d6075b5ae0451454aad2492d99a7127b, type: 3}
   magicFairy: {fileID: 8300000, guid: 56f644328b8061f49bc74eee503ccb10, type: 3}
   magicVoice: {fileID: 8300000, guid: 02b6ebf07e6afc14eaaa10400d097bc0, type: 3}
-  magicFrogs: {fileID: 8300000, guid: e586d30324b328041aa1801ad05e2545, type: 3}
+  magicFrogs: {fileID: 8300000, guid: 49b1c60ec4a360643b5a9091fb86eb5f, type: 3}
   gameOverMusic: {fileID: 8300000, guid: 5bbd126bd92906649b9a977b0d541a9e, type: 3}
   levelToLoad: MainMenu
 --- !u!82 &8437754812889981687

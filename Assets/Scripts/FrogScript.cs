@@ -22,12 +22,13 @@ public class FrogScript : MonoBehaviour
         {
             print("frog interacted: " + GameManager.frogsSinging);
             GameManager.frogsSinging++;
-            
+            GetComponent<Animation>().Play();
             //audioSource.PlayOneShot();
 
             if (GameManager.frogsSinging == 3)
             {
                 GameManager.FrogPlant();
+                audioSource.Play();
             }
 
             //changes sprite
