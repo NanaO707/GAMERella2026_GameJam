@@ -876,6 +876,7 @@ GameObject:
   - component: {fileID: 1809109092}
   - component: {fileID: 1809109091}
   - component: {fileID: 1809109093}
+  - component: {fileID: 1809109094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1004,6 +1005,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.59832126, y: 0.8264586, z: 0.77492523}
   m_Center: {x: 0.025929064, y: 0.5867707, z: -0.017876625}
+--- !u!114 &1809109094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809109083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c55eda3d83550b48ab4dcbb894e6b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  audioSource: {fileID: 0}
 --- !u!1 &2018881724
 GameObject:
   m_ObjectHideFlags: 0
