@@ -83,17 +83,17 @@ public class GameManager : MonoBehaviour
     }
     public string levelToLoad;
 
-    public void GameOver()
-    {
-        instance.audioSource.PlayOneShot(instance.gameOverMusic);
-        Wait();
-        SceneManager.LoadScene(levelToLoad);
+    //public void GameOver()
+    //{
+    //    instance.audioSource.PlayOneShot(instance.gameOverMusic);
+    //    Wait();
+    //    SceneManager.LoadScene(levelToLoad);
 
-    }
+    //}
 
-    public static async void Wait()
-    {
-        await Task.Delay(5000); // Wait 2000 milliseconds (2 seconds)
+    //public static async void Wait()
+    //{
+    //    await Task.Delay(5000); // Wait 2000 milliseconds (2 seconds)
     
-    }
+    //}
 }
