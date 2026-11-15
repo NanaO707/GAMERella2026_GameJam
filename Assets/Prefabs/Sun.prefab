@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6599311945482241439}
   - component: {fileID: 5250036972877414596}
   - component: {fileID: 7663490718677109277}
+  - component: {fileID: 8941542574997006458}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -205,3 +206,20 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!111 &8941542574997006458
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256705493972634838}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: f4316dd5af3e24146a30577267dc1456, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f4316dd5af3e24146a30577267dc1456, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

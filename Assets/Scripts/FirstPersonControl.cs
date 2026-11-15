@@ -28,8 +28,9 @@ public class FirstPersonControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-         Cursor.lockState = CursorLockMode.Locked;
-         Cursor.visible = false;
+        Cursor.visible = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
 
         //spawn pos
         Vector3 localPos = transform.localPosition;
