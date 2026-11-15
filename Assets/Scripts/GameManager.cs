@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour 
 {
@@ -12,6 +14,7 @@ public class GameManager : MonoBehaviour
     //plant
     [SerializeField] private SpriteRenderer plantSprite;
     [SerializeField] private Sprite[] spriteList;
+    [SerializeField] private Light light;
 
     private static GameManager instance;
 
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip magicFairy;
     [SerializeField] private AudioClip magicVoice;
     [SerializeField] private AudioClip magicFrogs;
+    [SerializeField] private AudioClip gameOverMusic;
 
     private void Awake()
     {
@@ -34,6 +38,11 @@ public class GameManager : MonoBehaviour
         //sfx
         plantStage++;
         plantSprite.sprite = spriteList[plantStage];
+        light.intensity += 10;
+        if (plantStage == 4)
+        {
+            gameOver = true;
+        }
 
     }
     public static void WaterPlant()
@@ -72,7 +81,19 @@ public class GameManager : MonoBehaviour
 
         print("frogs have sung");
     }
+    public string levelToLoad;
 
+    public void GameOver()
+    {
+        instance.audioSource.PlayOneShot(instance.gameOverMusic);
+        Wait();
+        SceneManager.LoadScene(levelToLoad);
 
+    }
 
+    public static async void Wait()
+    {
+        await Task.Delay(5000); // Wait 2000 milliseconds (2 seconds)
+    
+    }
 }
