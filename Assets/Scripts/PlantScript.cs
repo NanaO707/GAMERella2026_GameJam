@@ -4,10 +4,11 @@ using TMPro;
 using UnityEngine;
 public class PlantScript : MonoBehaviour
 {
-    private float timePassed = 0;
+    private float timePassed = 0f;
     private bool isTimerGoing = false;
     private Coroutine clickTimer;
 
+    [SerializeField] GameObject player;
     void StartTimer()
     {
         //clear
@@ -32,23 +33,44 @@ public class PlantScript : MonoBehaviour
         {
             timePassed += Time.deltaTime;
 
+            if (timePassed >= 10f)
+            {
+                Debug.Log("10 seconds passed!!!!!");
+
+                if (!GameManager.wateredPlant)
+                {
+                  GameManager.WaterPlant();
+                }
+
+                isTimerGoing = false;
+                clickTimer = null;
+                yield break;
+            }
+
             yield return null;
         }
     }
 
-    private void OnMouseDown()
+
+private void OnMouseDown()
     {
         print("click!");
-        //start coroutine for amount of time held!!!!!!!!1
+        //start coroutine for amount of time held!
         StartTimer();
-        if (timePassed == 10f)
-        {
-            print("10 seconds passed!!!!!");
 
-            GameManager.WaterPlant();
-            
+    }
+
+    private void OnMouseUp()
+    {
+        isTimerGoing = false;
+
+        if (clickTimer != null)
+        {
+            StopCoroutine(clickTimer);
+            clickTimer = null;
         }
 
+        print("stopped holding");
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

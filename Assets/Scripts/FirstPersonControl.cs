@@ -21,11 +21,23 @@ public class FirstPersonControl : MonoBehaviour
     public float cameraSwaySpeed = 4f;
     public float swayAmount = 0.05f;
 
+    //RAYCASTING
+    Ray ray;
+    RaycastHit hit;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-          Cursor.lockState = CursorLockMode.Locked;
+         Cursor.lockState = CursorLockMode.Locked;
          Cursor.visible = false;
+
+        //spawn pos
+        Vector3 localPos = transform.localPosition;
+        localPos.y = bobbingMidpoint;
+        transform.localPosition = localPos;
+
+        ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+       
     }
 
     // Update is called once per frame
@@ -34,6 +46,14 @@ public class FirstPersonControl : MonoBehaviour
         HandleMouseLook();
         HandleMovement();
         HandleHeadBob();
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (Input.GetMouseButtonDown(0))
+                print(hit.collider.name);
+        }
+
+
         // HandleCameraSway();
 
     }
@@ -90,6 +110,9 @@ public class FirstPersonControl : MonoBehaviour
         if (!isMoving)
         {
             bobbingTimer = 0.0f;
+            Vector3 localPos = transform.localPosition;
+            localPos.y = bobbingMidpoint;
+            transform.localPosition = localPos;
         }
         else
         {

@@ -8,8 +8,11 @@ public class GameManager : MonoBehaviour
     public static bool gameOver;
 
     //plant
-    [SerializeField] static Sprite plantSprite;
-    [SerializeField] public static Sprite[] spriteList;
+    [SerializeField] private SpriteRenderer plantSprite;
+    [SerializeField] private Sprite[] spriteList;
+
+    private static GameManager instance;
+
     private static int plantStage = 0;
 
     [SerializeField] public AudioSource audioSource; //used for sound effect of magic or whatever
@@ -19,29 +22,37 @@ public class GameManager : MonoBehaviour
     [SerializeField] public AudioClip magic3;
     [SerializeField] public AudioClip magic4;
 
-    static void PlantGrow()
+    private void Awake()
+    {
+        instance = this;
+        plantStage = 0;
+    }
+    private void PlantGrow()
     {
         //sfx
-        plantSprite = spriteList[++plantStage];
+        plantStage++;
+        plantSprite.sprite = spriteList[plantStage];
 
     }
     public static void WaterPlant()
     {
-        PlantGrow();
+        //insatce
+        instance.PlantGrow();
+        wateredPlant = true;
         //animation sfx whatever
         print("water planted");
     }
 
     public static void FairyPlant()
     {
-        PlantGrow();
+        instance.PlantGrow();
         //animation sfx whatever
         print("fairy fed to plant");
     }
 
     public static void SpeakPlant()
     {
-        PlantGrow();
+        instance.PlantGrow();
         //animation sfx whatever
         print("final step: enchantment spoken");
     }
