@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4131323615711687906}
   - component: {fileID: 392783416465660099}
   - component: {fileID: -8599923650083711474}
+  - component: {fileID: -8019631700978816034}
   m_Layer: 0
   m_Name: Fairy
   m_TagString: Untagged
@@ -243,3 +244,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!111 &-8019631700978816034
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892021348057753016}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 928b54d8587ac6749a4befce260a027d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 928b54d8587ac6749a4befce260a027d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
+using System.Collections;
 
 public class GameManager : MonoBehaviour 
 {
@@ -26,7 +27,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip magicFairy;
     [SerializeField] private AudioClip magicVoice;
     [SerializeField] private AudioClip magicFrogs;
+
     [SerializeField] private AudioClip gameOverMusic;
+    [SerializeField] private AudioClip gameOverClip;
 
     private void Awake()
     {
@@ -37,11 +40,19 @@ public class GameManager : MonoBehaviour
     {
         //sfx
         plantStage++;
+        print(plantStage);
         plantSprite.sprite = spriteList[plantStage];
         light.intensity += 10;
+        if (plantStage == 1)
+            {
+            instance.audioSource.clip = gameOverMusic;
+            audioSource.Play();
+
+        }
         if (plantStage == 4)
         {
             gameOver = true;
+            audioSource.volume = 0.8f;
         }
 
     }
@@ -85,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        instance.audioSource.PlayOneShot(instance.gameOverMusic);
+        instance.audioSource.PlayOneShot(instance.gameOverClip);
         Wait();
         SceneManager.LoadScene(levelToLoad);
 
@@ -96,4 +107,5 @@ public class GameManager : MonoBehaviour
         await Task.Delay(5000); // Wait 2000 milliseconds (2 seconds)
 
     }
-}
+
+    }
