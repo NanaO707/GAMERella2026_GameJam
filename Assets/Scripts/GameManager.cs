@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static bool fairyGot;
     public static bool fairyUsed;
     public static bool shoutedAtPlant;
+    public static int frogsSinging;
     public static bool gameOver;
 
     //plant
@@ -63,7 +64,7 @@ public class GameManager : MonoBehaviour
         print("final step: enchantment spoken");
     }
 
-    public static void MusicPlant()
+    public static void FrogPlant()
     {
         instance.PlantGrow();
         //animation sfx whatever
