@@ -65,6 +65,12 @@ private void OnMouseDown()
             GameManager.fairyUsed = true;
         }
 
+        if (GameManager.gameOver)
+        {
+           // GameManager.GameOver();
+        }
+
+
     }
 
     private void OnMouseUp()

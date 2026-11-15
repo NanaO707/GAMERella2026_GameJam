@@ -85,8 +85,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: f2817854e05adab45baa8bc8a65ce757, type: 3}
-  m_Color: {r: 0, g: 0.98490566, b: 0.1427014, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1b5af55254e135247a95a2c3066af8da, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -243,4 +243,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrogScript
   audioSource: {fileID: 668809964920085644}
-  singingSprite: {fileID: 21300000, guid: 12683ea4876f93542941092ef0c4c614, type: 3}
+  singingSprite: {fileID: 21300000, guid: 2a4c9c7477f12a440bce8f760f93bd1a, type: 3}
