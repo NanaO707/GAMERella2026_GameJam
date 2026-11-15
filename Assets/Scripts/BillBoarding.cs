@@ -5,6 +5,7 @@ public class BillBoarding : MonoBehaviour
 {
     public enum BillBoardType { LookAtCamera, CameraForward };
     [SerializeField] private BillBoardType billboardtype;
+    [SerializeField] private Camera playerCamera;
 
     [SerializeField] private bool lockX;
     [SerializeField] private bool lockY;
@@ -22,10 +23,10 @@ public class BillBoarding : MonoBehaviour
         switch (billboardtype)
         {
             case BillBoardType.LookAtCamera:
-                transform.LookAt(Camera.main.transform.position, Vector3.up);
+                transform.LookAt(playerCamera.transform.position, Vector3.up);
                 break;
                 case BillBoardType.CameraForward: 
-                transform.forward = Camera.main.transform.forward;
+                transform.forward = playerCamera.transform.forward;
                 break;
             default: break;
         }

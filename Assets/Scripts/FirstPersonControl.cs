@@ -38,24 +38,29 @@ public class FirstPersonControl : MonoBehaviour
 
     }
 
+    private void LateUpdate()
+    {
+        
+    }
+
     void HandleMovement()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            playerBody.transform.position += Vector3.forward * speed * Time.deltaTime;
+            playerBody.transform.position += playerBody.transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            playerBody.transform.position += Vector3.left * speed * Time.deltaTime;
+            playerBody.transform.position += -playerBody.transform.right * speed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            playerBody.transform.position += Vector3.back * speed * Time.deltaTime;
+            playerBody.transform.position += -playerBody.transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            playerBody.transform.position += Vector3.right * speed * Time.deltaTime;
+            playerBody.transform.position += playerBody.transform.right * speed * Time.deltaTime;
         }
     }
 
@@ -70,6 +75,7 @@ public class FirstPersonControl : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation,0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
     }
 
     void HandleHeadBob()
