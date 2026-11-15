@@ -7,20 +7,35 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class VoiceActivation : MonoBehaviour{
 
+    //array of plant sprites 
     public Sprite[] plantImages;
-    public Image displayImage;
 
+    //2D object showing the plant
+    public SpriteRenderer plantObject;
+    //track of image
     private int currentImage = 0;
+
+    //times player says grow
+    private int growCount = 0;
+
+    //tracks voice usage of te interaction
     private bool voiceUsed = false;
 
+    //voice recognition per windows unity documentation
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, System.Action> actions = new Dictionary<string, System.Action>();
-   //private new string[] = { "grow", "crescite"};
+ 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //displayImage.sprite = [currentImage];
+        //starting image
+        plantObject.sprite = plantImages[currentImage];
+
+        //action for the word grow
+        actions.Add("grow", Grow);
+
+        //voice recognition per windows unity documentation
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += voiceRecognized;
         //takes speech input 
@@ -31,52 +46,74 @@ public class VoiceActivation : MonoBehaviour{
 
      void voiceRecognized(PhraseRecognizedEventArgs speech)
     {
-
-        actions.Add("grow", Grow);
-        actions.Add("crescite", Crescite);
+        //checks if voice was used
         if (voiceUsed == true) {
             return;
         }
 
-
-        if (speech.text == "grow" || speech.text == "crescite")
+        //checks for the word grow
+        if (speech.text == "grow")
         {
+            //increments
+            growCount++;
+           
+            Debug.Log(growCount);
 
-            voiceUsed = true;
-            keywordRecognizer.Stop();
-            //ChangeImage();
-            Debug.Log(speech.text);
+            //changes image based on grow being said 3 times
+            if(growCount == 3)
+            {
+                //one use
+                voiceUsed = true;
+                //stops listening
+                keywordRecognizer.Stop();
+                //calls grow
+                actions["grow"].Invoke();
+            }      
 
-        }
-
-        actions[speech.text].Invoke();
+        }   
     }
 
     private void ChangeImage ()
     {
-        if (currentImage>=plantImages.Length-1)
+        //changes image of the plant but doesn't loop
+        if (currentImage<plantImages.Length-1)
         {
             currentImage++;
-            displayImage.sprite = plantImages[plantImages.Length-1];
+            //changes image on the 2d sprite object
+            plantObject.sprite = plantImages[currentImage];
 
         }
-
-
-       //change plant image
     }
     private void Grow()
     {
+        //Calls change image
         ChangeImage();
-    }
-    private void Crescite()
-    {
-        ChangeImage();
-
+        Debug.Log("plant grown done");
     }
 
     private void CleanSpeech()
     {
+        //checks that recognizer is there
+        if (keywordRecognizer != null)
+        {
+            //unsubsribes from event
+            keywordRecognizer.OnPhraseRecognized -= voiceRecognized;
 
+            //stops it if it's still listening
+            if (keywordRecognizer.IsRunning)
+            {
+                keywordRecognizer.Stop();
+            }
+            //disposes
+            keywordRecognizer.Dispose();
+        }
+      
+    }
+
+    void OnDestroy()
+    {
+       // calls clean speech
+        CleanSpeech();
     }
 
     // Update is called once per frame
@@ -85,7 +122,5 @@ public class VoiceActivation : MonoBehaviour{
         
     }
 
-    //two actions are Grow and Crescite
-    //actions.Add("grow", Grow);
-    //actions.Add("crescite", Crescite);
+  
 }

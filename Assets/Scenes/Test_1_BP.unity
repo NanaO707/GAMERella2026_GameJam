@@ -849,6 +849,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1758279534}
   - component: {fileID: 1758279533}
+  - component: {fileID: 1758279535}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -930,6 +931,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1758279535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758279532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4dedf36941bf542a382ff51e42be74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoiceActivation
+  plantImages:
+  - {fileID: 21300000, guid: 96cb22344cf803c41b3c452e9037ba42, type: 3}
+  - {fileID: 21300000, guid: a40ff8981fa7ff540bcd295c54423ced, type: 3}
+  - {fileID: 21300000, guid: f2817854e05adab45baa8bc8a65ce757, type: 3}
+  - {fileID: 21300000, guid: 0d12fa60cd0ca594f96b818527a87a8f, type: 3}
+  plantObject: {fileID: 1758279533}
 --- !u!1 &1868121308
 GameObject:
   m_ObjectHideFlags: 0
