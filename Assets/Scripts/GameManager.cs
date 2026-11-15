@@ -16,12 +16,12 @@ public class GameManager : MonoBehaviour
 
     private static int plantStage = 0;
 
-    [SerializeField] public AudioSource audioSource; //used for sound effect of magic or whatever
+    [SerializeField] private AudioSource audioSource;
 
-    [SerializeField] public AudioClip magic1;
-    [SerializeField] public AudioClip magic2;
-    [SerializeField] public AudioClip magic3;
-    [SerializeField] public AudioClip magic4;
+    [SerializeField] private AudioClip magicWater;
+    [SerializeField] private AudioClip magicFairy;
+    [SerializeField] private AudioClip magicVoice;
+    [SerializeField] private AudioClip magicFrogs;
 
     private void Awake()
     {
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         instance.PlantGrow();
         wateredPlant = true;
         //animation sfx whatever
+        instance.audioSource.PlayOneShot(instance.magicWater);
         print("water planted");
     }
 
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
     {
         instance.PlantGrow();
         //animation sfx whatever
+        instance.audioSource.PlayOneShot(instance.magicFairy);
+
         print("fairy fed to plant");
     }
 
@@ -55,7 +58,18 @@ public class GameManager : MonoBehaviour
     {
         instance.PlantGrow();
         //animation sfx whatever
+        instance.audioSource.PlayOneShot(instance.magicVoice);
+
         print("final step: enchantment spoken");
+    }
+
+    public static void MusicPlant()
+    {
+        instance.PlantGrow();
+        //animation sfx whatever
+        instance.audioSource.PlayOneShot(instance.magicFrogs);
+
+        print("frogs have sung");
     }
 
 

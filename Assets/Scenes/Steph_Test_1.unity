@@ -1029,10 +1029,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f2817854e05adab45baa8bc8a65ce757, type: 3}
   - {fileID: 21300000, guid: 0d12fa60cd0ca594f96b818527a87a8f, type: 3}
   audioSource: {fileID: 1809109095}
-  magic1: {fileID: 0}
-  magic2: {fileID: 0}
-  magic3: {fileID: 0}
-  magic4: {fileID: 0}
+  magicWater: {fileID: 8300000, guid: d6075b5ae0451454aad2492d99a7127b, type: 3}
+  magicFairy: {fileID: 8300000, guid: 56f644328b8061f49bc74eee503ccb10, type: 3}
+  magicVoice: {fileID: 8300000, guid: 02b6ebf07e6afc14eaaa10400d097bc0, type: 3}
+  magicFrogs: {fileID: 8300000, guid: e586d30324b328041aa1801ad05e2545, type: 3}
 --- !u!82 &1809109095
 AudioSource:
   m_ObjectHideFlags: 0
