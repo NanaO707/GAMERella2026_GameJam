@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrogScript
   audioSource: {fileID: 668809964920085644}
+  croak: {fileID: 8300000, guid: 17f36d12c92157a4eb4362834e9708d9, type: 3}
   singingSprite: {fileID: 21300000, guid: 2a4c9c7477f12a440bce8f760f93bd1a, type: 3}
 --- !u!111 &2137147540372462542
 Animation:

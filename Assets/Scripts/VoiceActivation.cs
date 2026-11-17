@@ -27,8 +27,8 @@ public class VoiceActivation : MonoBehaviour{
     //voice recognition per windows unity documentation
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, System.Action> actions = new Dictionary<string, System.Action>();
- 
 
+    [SerializeField] AudioClip clip;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -75,10 +75,12 @@ public class VoiceActivation : MonoBehaviour{
             {
                 //one use
                 voiceUsed = true;
+                GetComponent<AudioSource>().PlayOneShot(clip);
                 //stops listening
                 keywordRecognizer.Stop();
                 //calls grow
                 actions["grow"].Invoke();
+
             }      
 
         }   

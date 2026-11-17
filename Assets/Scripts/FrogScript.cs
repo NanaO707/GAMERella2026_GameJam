@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class FrogScript : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip croak;
     [SerializeField] private Sprite singingSprite;
-
     private bool clicked;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,17 +20,16 @@ public class FrogScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.frogsSinging < 3 && clicked==false)
+        if (!clicked)
         {
             print("frog interacted: " + GameManager.frogsSinging);
             GameManager.frogsSinging++;
             GetComponent<Animation>().Play();
-            //audioSource.PlayOneShot();
-            clicked = true;
+            GetComponent<AudioSource>().Play();
+
             if (GameManager.frogsSinging == 3)
             {
                 GameManager.FrogPlant();
-                GetComponent<AudioSource>().Play();
             }
 
             //changes sprite

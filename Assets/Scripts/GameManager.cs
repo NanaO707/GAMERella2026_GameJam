@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
 
-    private static int plantStage = 0;
+    public static int plantStage = 0;
 
     [SerializeField] private AudioSource audioSource;
 
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         print(plantStage);
         plantSprite.sprite = spriteList[plantStage];
         light.intensity += 10;
-        if (plantStage == 1)
+        if (plantStage == 3)
             {
             instance.audioSource.clip = gameOverMusic;
             audioSource.Play();
@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
             audioSource.volume = 0.8f;
+            GameOver();
         }
 
     }
@@ -104,7 +105,7 @@ public class GameManager : MonoBehaviour
 
     public static async void Wait()
     {
-        await Task.Delay(5000); // Wait 2000 milliseconds (2 seconds)
+        await Task.Delay(5000);
 
     }
 
